@@ -2,14 +2,14 @@
 
 ## (1) Background 
 
-This Quarkus project uses **testcontainers** with **docker-compose** for setting up an **integration-test environment** which contains:
+This Quarkus project uses [Testcontainers](https://www.testcontainers.org) with the [Docker Compose Module](https://www.testcontainers.org/modules/docker_compose/) for setting up an **integration-test environment** which contains:
 
 * Postgres DB
 * Kafka Broker
 * Kafka Zookeeper
 * Quarkus application
 
-I'm using Mavens integration-test and verify phase to run my integration-tests against the docker-compose environment started by testcontainers. The test-classes are normal JUnit5 tests without the Quarkus annotations ``@QuarkusTest`` and ``@NativeImageTest``. 
+I'm using Mavens **integration-test** and **verify** phase to run my integration-tests against the docker-compose environment started by testcontainers. The test-classes are normal JUnit5 tests without the Quarkus annotations ``@QuarkusTest`` and ``@NativeImageTest``. 
 
 This mechanism addresses an integration-test scenario where all real world components (postgres, kafka, etc. but no mocks or H2 dbs) and the application itself are in place for being tested from outside via REST calls. Without the need to deploy the whole stuff to your target cloud environment.
 
